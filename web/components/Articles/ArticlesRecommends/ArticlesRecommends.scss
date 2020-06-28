@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Tenor+Sans&display=swap');
+$grey: #ffece6;
+
+$cosmo-pink: #ec008c;
+$font: 'Tenor Sans', sans-serif;
+
+
+.articles-recommends {
+  width: 300px;
+  height: 125px;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.29;
+  letter-spacing: normal;
+  color: #000000;
+  background-color: #dedede;
+
+  .articles-recommends__list {
+    list-style: none;
+
+    li {
+      display: flex;
+      position: relative;
+      background-color: $grey;
+      transition: all 0.15s linear 0s;
+      height: 125px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: calc(50% - 15px);
+        left: 45%;
+        width: 0;
+        height: 0;
+        border-top: 15px solid transparent;
+        border-bottom: 15px solid transparent;
+        border-right:15px solid $grey;
+        border-left: none;
+      }
+
+      &:nth-child(even){
+        flex-direction: row-reverse;
+
+        &::before {
+          left: calc(55% - 15px);
+          border-left:15px solid $grey;
+          border-right: none;
+        }
+      }
+
+      img {
+        width: 50%;
+        object-fit: cover;
+      }
+
+      &:hover {
+        cursor: pointer;
+        color: $cosmo-pink;
+        opacity: 0.9;
+      }
+
+      span {
+        display: block;
+        padding: 18px 9px;
+        font-family: $font;
+      }
+    }
+  }
+}

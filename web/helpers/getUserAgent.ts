@@ -1,0 +1,1 @@
+export default (req?: any) => process.server ? req.headers['user-agent'] : navigator.userAgent;

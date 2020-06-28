@@ -1,0 +1,60 @@
+<svg height="60" viewBox="0 0 90 60" width="90" xmlns="http://www.w3.org/2000/svg">
+  <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" x="28%"
+       y="40%" viewBox="0 0 600 600" style="transform-origin: 25px 25px 0px;" xml:space="preserve">
+      <g style="transform-origin: 25px 25px 0px;">
+        <g style="transform-origin: 25px 25px 0px; transform: scale(1);">
+          <g class="ld ld-breath"
+             style="transform-origin: 25px 25px 0px; animation-duration: 0.6s; animation-delay: -0.6s; animation-direction: normal;">
+            <g>
+              <g style="transform-origin: 25px 25px 0px;">
+                  <path class="st22"
+                        d="M90,34.613c0-1.501-0.157-2.964-0.451-4.378c-2.021-9.724-10.635-17.032-20.959-17.032 c-4.43,0-8.545,1.346-11.96,3.65c-2.727,1.84-4.993,4.3-6.63,7.166c-1.637-2.866-3.903-5.326-6.63-7.166 c-3.415-2.304-7.53-3.65-11.96-3.65c-10.324,0-18.938,7.308-20.959,17.032C10.157,31.649,10,33.112,10,34.613 c0,0.328,0.022,0.651,0.037,0.975c-0.002,0.159-0.012,0.315-0.012,0.474C10.025,58.179,50,86.797,50,86.797 s39.975-28.618,39.975-50.734c0-0.159-0.01-0.316-0.012-0.474C89.978,35.264,90,34.941,90,34.613z"
+                        fill="#ec008c">
+                  </path>
+                </g>
+              <metadata xmlns:d="https://loading.io/stock/" style="transform-origin: 25px 25px 0px;">
+                  <d:name style="transform-origin: 25px 25px 0px;">heart</d:name>
+                <d:tags style="transform-origin: 25px 25px 0px;">love,like,favorite,heart,people</d:tags>
+                <d:license style="transform-origin: 25px 25px 0px;">cc-by</d:license>
+                <d:slug style="transform-origin: 25px 25px 0px;">a7634f</d:slug>
+                </metadata>
+            </g>
+          </g>
+        </g>
+      </g>
+    <style type="text/css" style="transform-origin: 25px 25px 0px;">
+        @keyframes ld-breath {
+          0% {
+            -webkit-transform: scale(0.86);
+            transform: scale(0.86);
+          }
+          50% {
+            -webkit-transform: scale(1.06);
+            transform: scale(1.06);
+          }
+          100% {
+            -webkit-transform: scale(0.86);
+            transform: scale(0.86);
+          }
+        }
+        @-webkit-keyframes ld-breath {
+          0% {
+            -webkit-transform: scale(0.86);
+            transform: scale(0.86);
+          }
+          50% {
+            -webkit-transform: scale(1.06);
+            transform: scale(1.06);
+          }
+          100% {
+            -webkit-transform: scale(0.86);
+            transform: scale(0.86);
+          }
+        }
+        .ld.ld-breath {
+          -webkit-animation: ld-breath 1s infinite;
+          animation: ld-breath 1s infinite;
+        }
+    </style>
+    </svg>
+</svg>

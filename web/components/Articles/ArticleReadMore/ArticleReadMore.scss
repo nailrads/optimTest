@@ -1,0 +1,126 @@
+$flushOrange: #FB8700;
+
+@mixin readMoreImg($marginRight, $width, $height) {
+  min-width: $width;
+  width: $width;
+  margin-right: $marginRight;
+  height: $height;
+}
+@mixin readMoreText($fontSize, $lineHeight) {
+  font-size: $fontSize;
+  line-height: $lineHeight;
+}
+
+.read-more {
+  margin: 23px 0 32px;
+
+  display: flex;
+  width: 100%;
+  border-top: 1px solid $illusion;
+  border-bottom: 1px solid $illusion;
+  padding: 10px 0;
+  overflow: hidden;
+
+  img {
+    object-fit: cover;
+
+    @include readMoreImg(10px, 130px, 105px);
+
+    @include xs {
+      @include readMoreImg(20px, 241px, 160px);
+    }
+
+    @include md {
+      @include readMoreImg(10px, 214px, 142px);
+    }
+
+    @include lg {
+      @include readMoreImg(20px, 241px, 160px);
+    }
+  }
+
+  .read-more__text {
+    position: relative;
+
+    h3 {
+      @extend %title-default;
+      color: $flushOrange;
+      max-height: 120px;
+      overflow: hidden;
+
+      @include readMoreText(14px, 17px);
+
+      @include xs {
+        @include readMoreText(25px, 30px);
+      }
+
+      @include customScreen(375px) {
+        @include readMoreText(16px, 21px);
+      }
+
+      @include customScreen(414px) {
+        @include readMoreText(18px, 21px);
+      }
+
+      @include customScreen(650px) {
+        @include readMoreText(22px, 30px);
+      }
+
+      @include sm {
+        @include readMoreText(25px, 30px);
+        padding-right: 20px;
+      }
+
+      @include md {
+        @include readMoreText(19px, 24px);
+        padding-right: 0;
+      }
+
+      @include md {
+        @include readMoreText(25px, 30px);
+        padding-right: 30px;
+      }
+    }
+
+    a {
+      @extend %description-default;
+      @include readMoreText(14px, inherit);
+
+      display: inline-block;
+      margin-top: 3px;
+      color: $illusion;
+      font-style: italic;
+      font-weight: bold;
+      letter-spacing: -0.5px;
+      text-decoration: underline;
+      position: absolute;
+      bottom: 0;
+
+      @include xs {
+        @include readMoreText(20px, 24px);
+      }
+
+      @include md {
+        @include readMoreText(18px, 24px);
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 3px;
+        right: -36px;
+        height: 13px;
+        width: 25px;
+        background: url("/icons/arrow.svg") no-repeat center;
+
+        @include xs {
+          top: 7px;
+        }
+      }
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}

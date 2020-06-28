@@ -1,0 +1,31 @@
+$muted-black: #303030;
+
+.sidebar {
+  background: $muted-black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 290px;
+  padding: 15px 10px 30px 30px;
+  overflow-y: auto;
+  z-index: 9999;
+
+  small {
+    display: block;
+    margin-bottom: 13px;
+    text-transform: uppercase;
+  }
+
+  .social-networks {
+    margin: 24px 0;
+  }
+}
+
+.sidebar-fade-enter-active, .sidebar-fade-leave-active {
+  transition: left 0.5s;
+}
+.sidebar-fade-enter, .sidebar-fade-leave-to {
+  left: -290px;
+}
+

@@ -1,0 +1,67 @@
+$black: rgb(48, 48, 48);
+$grey-text: #aaa;
+$muted-bg: #dedede;
+$cosmo-pink: #ec008c;
+
+.author-article {
+  display: inline-flex;
+  width: 50%;
+
+  .author-article__cnt {
+    min-height: 90px;
+    padding: 10px 0;
+    width: 282px;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      cursor: pointer;
+
+      img {
+        opacity: 0.8;
+        transition: all 0.15s linear 0s;
+      }
+
+      span {
+        transition: all 0.15s linear 0s;
+        color: $cosmo-pink;
+      }
+    }
+
+    img {
+      @include authorImg(60px);
+
+      @include xs {
+        @include authorImg(70px);
+      }
+    }
+
+    .author-info {
+      margin-left: 10px;
+    }
+
+    span {
+      display: block;
+      text-decoration: none;
+      margin-top: 6px;
+
+      font-family: 'Tenor Sans', sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      color: $black;
+
+      &[field="name"] {
+        font-size: 17px;
+
+        @media only screen and (min-width: 340px) {
+          font-size: 18px;
+        }
+      }
+
+      &[field="role"] {
+        font-size: 12px;
+        line-height: 15px;
+      }
+    }
+  }
+}

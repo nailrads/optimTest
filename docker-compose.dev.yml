@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  web:
+    build:
+      dockerfile: Dockerfile.dev
+    command: yarn dev-cosmo
+    stdin_open: true
+    tty: true
+    environment:
+      - APP_WEB_API_HOST=http://api:3030
+    volumes:
+      - ./web/assets:/usr/src/app/assets
+      - ./web/components:/usr/src/app/components
+      - ./web/filters:/usr/src/app/filters
+      - ./web/helpers:/usr/src/app/helpers
+      - ./web/interfaces:/usr/src/app/interfaces
+      - ./web/layouts:/usr/src/app/layouts
+      - ./web/middleware:/usr/src/app/middleware
+      - ./web/pages:/usr/src/app/pages
+      - ./web/plugins:/usr/src/app/plugins
+      - ./web/router:/usr/src/app/router
+      - ./web/static:/usr/src/app/static
+      - ./web/store:/usr/src/app/store
+      - ./web/app.html:/usr/src/app/app.html
+      - ./web/nuxt.config.ts:/usr/src/app/nuxt.config.ts
+      - ./web/tsconfig.json:/usr/src/app/tsconfig.json
+
+  api:
+    command: yarn dev
+    ports:
+      - "3030:3030"
+    environment:
+      - PORT=3030
+    volumes:
+      - ./api/src:/usr/src/app/src
+
+  nginx:
+    volumes:
+      - ./nginx/nginx.conf.dev:/etc/nginx/conf.d/nginx.conf

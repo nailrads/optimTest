@@ -1,0 +1,124 @@
+$indentDefault: 18px;
+
+@mixin indentInside($topAndBottom:0, $side: 0) {
+  padding: $topAndBottom $side;
+}
+
+@mixin indentOutsideUpAndDown($top:0, $bottom:0) {
+  margin-top: $top;
+  margin-bottom: $bottom;
+}
+
+@mixin font($size, $weight, $lineHeight) {
+  font: {
+    family: 'Open Sans', sans-serif;
+    size: $size;
+    weight: $weight;
+    style: normal;
+  }
+  color: $black;
+  line-height: $lineHeight;
+}
+
+.subscription {
+  @include indentOutsideUpAndDown(35px, 30px);
+  @include indentInside($indentDefault, $indentDefault);
+  width: 100%;
+  border: 1px solid $illusion;
+
+  @include md {
+    @include indentInside($indentDefault, $indentDefault - 3);
+  }
+
+  @include lg {
+    @include indentInside(25px, 40px);
+  }
+
+  img {
+    min-width: 122px;
+    width: 50%;
+    height: 115px;
+    margin-right: 8px;
+    object-fit: contain;
+    background-color: $white;
+
+    @include customScreen(650px){
+      max-width: 228px;
+      height: 215px;
+    }
+
+    @include md {
+      max-width: 194px;
+      height: 183px;
+    }
+
+    @include lg {
+      max-width: 241px;
+      height: 228px;
+    }
+  }
+
+  h6 {
+    @include font(22px, bold, 24px);
+
+    @include customScreen(650px){
+      @include font(28px, bold, 20px);
+      @include indentOutsideUpAndDown(7px, 22px);
+      text-align: center;
+    }
+
+    @include sm {
+      @include font(30px, bold, 20px);
+    }
+    @include md {
+      @include font(24px, bold, 20px);
+    }
+    @include lg {
+      @include font(30px, bold, 20px);
+    }
+  }
+
+  span {
+    @include font(14px, 400, 22px);
+    display: block;
+    @include indentOutsideUpAndDown($top: 4px);
+
+    @include customScreen(650px){
+      @include font(14px, 400, 24px);
+      text-align: center;
+    }
+
+    @include sm {
+      @include font(18px, 400, 24px);
+    }
+    @include md {
+      @include font(17px, 400, 24px);
+    }
+    @include lg {
+      @include font(18px, 400, 24px);
+    }
+  }
+
+  .subscription__cnt {
+    @include indentOutsideUpAndDown($bottom: 16px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include customScreen(650px) {
+      @include indentOutsideUpAndDown();
+      justify-content: flex-start;
+    }
+  }
+
+  .subscription__text {
+    width: 50%;
+
+    @include customScreen(650px) {
+      width: 60%;
+    }
+    @include md {
+      width: 66%;
+    }
+  }
+}

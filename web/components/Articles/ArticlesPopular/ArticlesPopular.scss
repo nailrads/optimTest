@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Tenor+Sans&display=swap');
+
+$cosmo-pink_new: #f796b7;
+
+.articles-popular {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Tenor Sans', sans-serif;
+  counter-reset: myCounter;
+
+  .articles-popular__item {
+    width: 148px;
+    list-style: none;
+    font-family: 'Tenor Sans', sans-serif;
+    background-size: contain;
+    position: relative;
+    transition: all 0.15s linear 0s;
+
+    &::before {
+      position: absolute;
+      display: inline-block;
+      top: 135px;
+      counter-increment: myCounter;
+      content: counter(myCounter);
+      color: $cosmo-pink_new;
+      font-size: 48px;
+    }
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.8
+    }
+
+    img {
+      width: inherit;
+      height: 90px;
+      object-fit: cover;
+    }
+
+    span {
+      display: inline-block;
+      width: 190px;
+      padding: 3px 5px 0;
+      margin-left: 29px;
+      overflow: hidden;
+      font-family: 'Tenor Sans', sans-serif;
+      font-weight: normal;
+      font-size: 13px;
+      line-height: 1.33;
+      letter-spacing: normal;
+    }
+
+    &:first-child {
+      span {
+        margin-left: 16px;
+      }
+    }
+
+    &:nth-child(3),
+    &:nth-child(4),
+    &:nth-child(5) {
+      display: none;
+    }
+
+    @media only screen and (min-width: 320px) {
+      width: 196px;
+
+      img {
+        height: 120px;
+      }
+
+      span {
+        font-size: 14px;
+      }
+
+      &:nth-child(3) {
+        display: block;
+      }
+
+    }
+    @media only screen and (min-width: 848px) {
+      width: 212px;
+      img {
+        height: 130px;
+      }
+
+      span {
+        font-size: 15px;
+      }
+
+    }
+    @media only screen and (min-width: 980px) {
+      width: 222px;
+
+      img {
+        height: 136px;
+      }
+      &:nth-child(4) {
+        display: block;
+      }
+    }
+    @media only screen and (min-width: 1200px) {
+      width: 220px;
+
+      &:nth-child(5) {
+        display: block;
+      }
+    }
+  }
+}

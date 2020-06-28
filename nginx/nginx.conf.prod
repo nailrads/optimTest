@@ -1,0 +1,14 @@
+server {
+    listen       80;
+    listen  [::]:80;
+    server_name  nnz.com;
+
+    location / {
+        proxy_pass   http://web:3000;
+    }
+
+    location /api {
+        proxy_pass   http://api:4554;
+        #rewrite ^/api/v1/(.*) /$1 break;
+    }
+}

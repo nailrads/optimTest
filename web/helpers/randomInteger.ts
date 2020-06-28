@@ -1,0 +1,1 @@
+export default (min: number, max: number): number  => Math.round(min + Math.random() * (max - min));

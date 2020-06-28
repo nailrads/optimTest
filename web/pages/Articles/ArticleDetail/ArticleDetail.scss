@@ -1,0 +1,61 @@
+$grey-lighten: rgb(170, 170, 170);
+$text-black: rgb(48, 48, 48); //30,30,30
+
+.sticky + .container {
+  padding-top: 82px;
+}
+
+.article-detail {
+  padding-top: 30px;
+
+  .article-detail__info {
+    display: flex;
+    justify-content: space-between;
+    color: $grey-lighten;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .article-detail__title,
+  .article-detail__subtitle {
+    font-family: 'Tenor Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+  }
+
+  .article-detail__title {
+    font-size: 48px;
+    line-height: 50px;
+  }
+
+  .article-detail__subtitle {
+    margin-top: 8px;
+    font-size: 20px;
+    line-height: 27px;
+  }
+
+  .article-detail__cnt {
+    margin-left: auto;
+
+    @include md {
+      width: 100%;
+    }
+    @include md {
+      width: 510px;
+    }
+    @include lg {
+      width: 666px;
+    }
+  }
+
+  .article-detail__desc {
+    width: 100%;
+    font-size: 20px;
+    color: $text-black;
+  }
+
+}
+
+img {
+  width: 100%;
+}

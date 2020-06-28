@@ -1,0 +1,47 @@
+.articles-list {
+  list-style: none;
+}
+
+
+$muted-white-milk: #aaa;
+$muted-black: #303030;
+$muted-white: #ebeced;
+.article-small {
+  margin-bottom: 30px;
+
+  .article-small__cnt {
+    height: 326px;
+    overflow: hidden;
+    color: $muted-black;
+
+    .article-small__cnt__image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .article-small__cnt__category {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin: 13px 0 7px;
+      color: $muted-white-milk;
+    }
+
+    .article-small__cnt__text {
+      font-size: 24px;
+      font-weight: 400;
+    }
+  }
+
+  &:nth-child(even) {
+    .article-small__cnt {
+      background-color: $muted-white;
+      text-align: center;
+
+      .article-small__cnt__category {
+        color: $muted-black;
+      }
+    }
+  }
+}

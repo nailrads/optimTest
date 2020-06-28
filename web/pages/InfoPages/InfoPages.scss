@@ -1,0 +1,84 @@
+$cosmo-pink: rgb(236, 0, 140);
+$black: #303030;
+$link: #42a7ff;
+$font-family: Arail, Helvetica, sans-serif;
+
+.info-page {
+
+  .info-page__title {
+    text-transform: uppercase;
+    font-size: 36px;
+    font-weight: normal;
+    width: 1350px;
+  }
+
+  .info-page__cnt {
+    max-width: 960px;
+    margin: inherit;
+    color: $black;
+    line-height: 1.53;
+    font-size: 17px;
+
+    h2 {
+      font: inherit;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-family: $font-family;
+      margin-top: 24px;
+
+      a {
+        font-size: 17px;
+        font-family: inherit;
+        color: $link;
+        transition: color 0.25s linear 0s;
+
+        &:hover {
+          color: $cosmo-pink;
+        }
+      }
+    }
+
+    ul,
+    ol {
+      counter-reset: section;
+      list-style-type: none;
+
+      li {
+        font-family: $font-family;
+        position: relative;
+        padding-left: 24px;
+
+        &::before {
+          position: absolute;
+          left: 0;
+          top: 0;
+          counter-increment: section;
+          color: $cosmo-pink;
+          font-size: 20px;
+        }
+      }
+    }
+
+    ul {
+      li {
+        margin-bottom: 14px;
+
+        &::before {
+          line-height: 20px;
+          content: '\25CF';
+        }
+      }
+    }
+
+    ol {
+      li {
+        &::before {
+          content: counter(section);
+        }
+      }
+    }
+  }
+}
