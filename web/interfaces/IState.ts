@@ -5,4 +5,5 @@ export default interface IState {
   readMoreList: [] | any;
   env: string;
   apiHost: string;
+  ads: { adsList: string[] };
 }

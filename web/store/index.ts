@@ -1,6 +1,7 @@
 import Backend from './backend/index';
 import Authors from './authors/index';
 import Posts from './posts/index';
+import Ads from './ads/index';
 import IState from "~/interfaces/IState";
 
 export const state = () => ({
@@ -8,6 +9,7 @@ export const state = () => ({
 
   ...Authors.state,
   ...Posts.state,
+  ...Ads.state,
 });
 
 export const actions = {
@@ -27,6 +29,7 @@ export const mutations = {
   ...Backend.mutations,
   ...Authors.mutations,
   ...Posts.mutations,
+  ...Ads.mutations,
 };
 
 export const getters = {
@@ -35,4 +38,5 @@ export const getters = {
   ...Backend.getters,
   ...Authors.getters,
   ...Posts.getters,
+  ...Ads.getters,
 };

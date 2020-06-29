@@ -5784,6 +5784,13 @@ nuxt-property-decorator@^2.4.0:
     vuex-class "^0.3.2"
     vuex-module-decorators "^0.16.1"
 
+nuxt-user-agent@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/nuxt-user-agent/-/nuxt-user-agent-1.2.2.tgz#696462fcbdbc32d5be2bc63976afd9eef6e9f6b7"
+  integrity sha512-Z9d+r1/PzJAvrr4rX70IWvRyI3qw3RukAGrRZPZ9WeByuCWmVKiW8G1AhdkUOyrDrVoBUC59iLqIVkop/NjSuQ==
+  dependencies:
+    woothee "^1.8.1"
+
 nuxt@2.10.2:
   version "2.10.2"
   resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-2.10.2.tgz#15ade22dfe281095865df18e6f6e861fcad1ff95"
@@ -8759,6 +8766,11 @@ widest-line@^3.1.0:
   integrity sha512-NsmoXalsWVDMGupxZ5R08ka9flZjjiLvHVAWYOKtiKM8ujtZWr9cRffak+uSE48+Ob8ObalXpwyeUiyDD6QFgg==
   dependencies:
     string-width "^4.0.0"
+
+woothee@^1.8.1:
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/woothee/-/woothee-1.11.0.tgz#f31dc5ee2c956f6137df6dea9f9bfc7f3ac1a7d1"
+  integrity sha512-3xCoZEpXujyJwmo2KzcJYjAMJZCvGsL4jGrjJNUBI1jhryVDzduqr808Wgk6ZkFTCINApZJUONWILJB9tiDEFg==
 
 workbox-cdn@^4.3.1:
   version "4.3.1"

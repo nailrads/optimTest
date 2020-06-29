@@ -1,6 +1,14 @@
 <template>
     <article class="article" v-if="article">
 
+        <Ad
+            :bannerName="'billboard_topline'"
+            :page="1"
+            :articleId="article.id"
+            :articleTags="article.tags"
+            border="true"
+        />
+
         <div class="wrap">
 
             <div class="cols --middle">
@@ -112,7 +120,12 @@
 
 
                 <div class="col__side">
+                    <div class="sticky">
 
+                    <Ad :tars="tars" :bannerName="'side_topline'"/>
+                    <Ad :tars="tars" bannerName="tgb" class="mt40" :page="1"
+                        :articleId="article.id" :articleTags="article.tags"/>
+                    </div>
                 </div>
             </div>
 

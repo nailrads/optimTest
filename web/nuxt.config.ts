@@ -63,6 +63,7 @@ const config: Configuration = {
         '@nuxtjs/svg-sprite',
         '@nuxtjs/style-resources',
         '@independentmedia/dfp',
+        'nuxt-user-agent',
     ],
     gptAds: {
         networkCode: '59083624',

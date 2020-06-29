@@ -27,7 +27,6 @@ export default class ArticleDetail extends Vue {
             acc = item;
             return acc
         }, 0);
-
         collects.push(cnt.slice(bbPositions[bbPositions.length - 1]));
 
         return this.robot ? [collects[0]] : collects
