@@ -19,7 +19,7 @@ server {
         #rewrite ^/api/v1/(.*) /$1 break;
     }
 
-    location ~* \.(ico|js|css|png|gif|jpe?g)$ {
+    location ~* \.(css|png|jpe?g)$ {
       expires 7d;
     }
 }
