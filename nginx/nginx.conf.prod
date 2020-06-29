@@ -19,10 +19,7 @@ server {
         #rewrite ^/api/v1/(.*) /$1 break;
     }
 
-    location ~ \.(js|css|png|jpg|gif|swf|ico|pdf|mov|fla|zip|rar)$ {
-        expires 1d;
-        add_header Vary Accept-Encoding;
-        access_log off;
-        log_not_found off;
+    location ~* \.(ico|js|css|png|gif|jpe?g)$ {
+      expires 7d;
     }
 }
