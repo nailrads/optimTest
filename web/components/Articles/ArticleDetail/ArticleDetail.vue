@@ -1,5 +1,5 @@
 <template>
-    <article class="article">
+    <article class="article" v-if="article">
 
         <div class="wrap">
 

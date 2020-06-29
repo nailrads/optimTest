@@ -23,6 +23,7 @@ const authorDefault = {
 };
 
 const fetchPost = async (context: ActionContext<IState, IState>, payload: { id: number }) => {
+    console.log('asd')
   try {
     const post: IPost | any = await context.dispatch(
       'backendTalker',
@@ -39,7 +40,7 @@ const fetchPost = async (context: ActionContext<IState, IState>, payload: { id: 
     } else {
         post.article.author = authorDefault
     }
-
+    console.log('POST', post)
     return post;
   } catch (err) {
     return err;
