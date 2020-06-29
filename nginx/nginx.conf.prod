@@ -4,19 +4,11 @@ server {
     server_name  139.162.151.21;
 
     charset utf-8;
-    gzip_vary on;
     gzip on;
-    gzip_min_length 10240;
     gzip_comp_level 7;
     gzip_static off;
-    gzip_proxied expired no-cache no-store private auth;
     gzip_types text/css text/plain application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript application/javascript text/x-js;
     gzip_disable "MSIE [1-6]\.";
-
-    open_file_cache          max=2000 inactive=20s;
-    open_file_cache_valid    60s;
-    open_file_cache_min_uses 5;
-    open_file_cache_errors   off;
 
     location / {
             proxy_pass   http://web:3000;
@@ -25,12 +17,5 @@ server {
     location /api {
         proxy_pass   http://api:4554;
         #rewrite ^/api/v1/(.*) /$1 break;
-    }
-
-    location ~ \.(js|css|png|jpg|gif|swf|ico|pdf|mov|fla|zip|rar)$ {
-        expires 1d;
-        add_header Vary Accept-Encoding;
-        access_log off;
-        log_not_found off;
     }
 }
