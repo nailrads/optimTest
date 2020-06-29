@@ -1,11 +1,21 @@
-@import url('https://fonts.googleapis.com/css?family=Tenor+Sans&display=swap&subset=cyrillic');
-@import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,700i&display=swap&subset=cyrillic');
+@mixin fontParams($size, $height) {
+  font-size: $size;
+  line-height: $height;
+}
 
-%title-default {
+@import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond:400,400i,600,600i,700,700i&display=swap&subset=cyrillic,cyrillic-ext');
+
+%tenor_sans {
   font-family: 'Tenor Sans', sans-serif;
   font-style: normal;
   font-weight: normal;
 }
-%description-default {
-  font-family: 'Cormorant Garamond', serif;
+
+%eb_garamond {
+  font-family: 'EB Garamond', serif;
+}
+
+%open_sans {
+  font-family: "OpenSans", sans-serif;
 }

@@ -1,0 +1,55 @@
+@mixin indentQuoteText($indent) {
+  padding-left: $indent;
+  padding-right: $indent;
+}
+@mixin fontText($size, $height) {
+  font-size: $size;
+  line-height: $height;
+}
+
+.author-quote {
+  margin: 25px 0 31px;
+  text-align: center;
+  width: 100%;
+
+  @include xs {
+    margin: 22px 0;
+  }
+
+  p {
+    @extend %tenor_sans;
+    display: block;
+    margin-bottom: 10px;
+    color: $default-black;
+
+    @include fontText(22px, 28px);
+
+    @include xs {
+      @include fontText(25px, 31px);
+      @include indentQuoteText(20px);
+    }
+    @include sm {
+      @include indentQuoteText(70px);
+    }
+    @include lg {
+      @include fontText(28px, 33px);
+    }
+  }
+
+  .expert {
+    color: $expert;
+  }
+
+  .picture {
+    @include authorImg(40px);
+    margin: 0 auto 5px;
+  }
+
+  span {
+    @extend %eb_garamond;
+    @include fontText(16px, 19px);
+    display: block;
+    font-style: italic;
+    font-weight: 600;
+  }
+}

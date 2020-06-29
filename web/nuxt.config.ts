@@ -2,8 +2,8 @@ import {Configuration} from '@nuxt/types'
 
 const defaultTemplateFolder = 'pages';
 
-const ArticlesList = `${defaultTemplateFolder}/Articles/ArticlesList/ArticlesList.vue`;
-const ArticleDetail = `${defaultTemplateFolder}/Articles/ArticleDetail/ArticleDetail.vue`;
+const List = `${defaultTemplateFolder}/Articles/ArticlesList/ArticlesList.vue`;
+const Detail = `${defaultTemplateFolder}/Articles/Detail/Detail.vue`;
 const Privacy = `${defaultTemplateFolder}/InfoPages/Privacy/Privacy.vue`;
 const Terms = `${defaultTemplateFolder}/InfoPages/Terms/Terms.vue`;
 
@@ -105,13 +105,13 @@ const config: Configuration = {
                 {
                     name: 'article-detail',
                     path: '/:category/:subcategory/:date/:code',
-                    component: resolve(__dirname, ArticleDetail),
+                    component: resolve(__dirname, Detail),
                     props: true
                 },
                 {
                     name: 'home',
                     path: '/',
-                    component: resolve(__dirname, ArticlesList)
+                    component: resolve(__dirname, List)
                 }
             )
         }

@@ -1,0 +1,144 @@
+$waveWidth: 112px;
+$waveIndent: $waveWidth + 30;
+
+.widget {
+  width: 100%;
+  background-color: #ffece6;
+  &:not(&_with_image) & {
+    &__placeholder {
+      padding: 15px;
+    }
+  }
+  &_with_image & {
+    &__placeholder {
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($default-black, 0.3);
+        z-index: 1;
+      }
+    }
+  }
+  .widget__title {
+    @extend %tenor_sans;
+    @include fontParams(20px, 1.2);
+    text-align: center;
+    color: $white;
+    text-transform: uppercase;
+    background: $red;
+
+    @include md {
+      font-size: 25px;
+    }
+
+    span {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 46px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      @include xsm {
+        &::before,
+        &::after {
+          content: "";
+          display: block;
+          flex: 0 0 auto;
+          width: $waveWidth;
+          height: 4px;
+          top: 12px;
+          background: url("/icons/wave--white.svg") no-repeat center;
+          margin-right: 20px;
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+
+  .widget__placeholder {
+    min-height: 177px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+    @include xsm {
+      min-height: 350px;
+    }
+
+    @include mediaHover {
+      .widget {
+        &__play {
+          transform: scale(1.1);
+          background-color: rgba($red, 0.7);
+        }
+      }
+    }
+  }
+
+  .widget__image {
+    width: inherit;
+  }
+
+  .widget__event {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 100%;
+    max-height: 100%;
+    padding: 30px 10px 10px;
+    text-align: center;
+    z-index: 2;
+    @include xsm {
+      padding-top: 40px;
+    }
+    span {
+      display: block;
+      @extend %tenor_sans;
+      @include fontParams(16px, 1.2);
+      text-transform: uppercase;
+      color: $red;
+
+      @include xsm {
+        font-size: 20px;
+      }
+
+      @include md {
+        font-size: 21px;
+      }
+    }
+  }
+
+  .widget__play {
+    background-image: url("/icons/play.svg");
+    background-repeat: no-repeat;
+    background-position: calc(50% + 3px) center;
+    background-size: calc(100% - 30px) calc(100% - 30px);
+    background-color: rgba($red, 0.5);
+    border: none;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s linear 0s;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 22px;
+
+    @include xsm {
+      background-size: calc(100% - 50px) calc(100% - 50px);
+      width: 100px;
+      height: 100px;
+    }
+  }
+}

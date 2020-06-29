@@ -1,3 +1,55 @@
+$skeletonHsl: hsl(0, 0%, 89%);
+$skeletonBg: rgba(0, 0, 0, 0.1);
+
+.post-skeleton {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 40px;
+
+  &__thumbnail {
+    position: relative;
+    width: 100%;
+
+    &::before {
+      display: block;
+      content: "";
+      width: 100%;
+      padding-top: 61.25%;
+      background-color: $skeletonBg;
+    }
+  }
+
+  &__details {
+    display: flex;
+  }
+
+  &__title {
+    width: 90%;
+    height: 20px;
+    margin: 8px 0;
+    border-radius: 2px;
+    background-color: $skeletonHsl;
+  }
+
+  &__desc {
+    width: 130px;
+    height: 20px;
+    margin: 10px 0;
+    background-color: $skeletonHsl;
+  }
+
+  &__avatar {
+    background-color: $skeletonHsl;
+    height: 36px;
+    width: 25px;
+    margin-right: 10px;
+    margin-top: 8px;
+  }
+}
+
+
+
+
 $flushOrange: #FB8700;
 
 @mixin readMoreImg($marginRight, $width, $height) {
@@ -6,13 +58,11 @@ $flushOrange: #FB8700;
   margin-right: $marginRight;
   height: $height;
 }
-@mixin readMoreText($fontSize, $lineHeight) {
-  font-size: $fontSize;
-  line-height: $lineHeight;
-}
 
 .read-more {
+
   margin: 23px 0 32px;
+  text-decoration: none;
 
   display: flex;
   width: 100%;
@@ -21,7 +71,7 @@ $flushOrange: #FB8700;
   padding: 10px 0;
   overflow: hidden;
 
-  img {
+  .picture {
     object-fit: cover;
 
     @include readMoreImg(10px, 130px, 105px);
@@ -43,83 +93,71 @@ $flushOrange: #FB8700;
     position: relative;
 
     h3 {
-      @extend %title-default;
+      @extend %tenor_sans;
       color: $flushOrange;
       max-height: 120px;
       overflow: hidden;
 
-      @include readMoreText(14px, 17px);
+      @include fontParams(14px, 18px);
 
       @include xs {
-        @include readMoreText(25px, 30px);
+        @include fontParams(25px, 30px);
       }
 
-      @include customScreen(375px) {
-        @include readMoreText(16px, 21px);
-      }
-
-      @include customScreen(414px) {
-        @include readMoreText(18px, 21px);
-      }
-
-      @include customScreen(650px) {
-        @include readMoreText(22px, 30px);
+      @include xsm {
+        @include fontParams(22px, 30px);
       }
 
       @include sm {
-        @include readMoreText(25px, 30px);
+        @include fontParams(25px, 30px);
         padding-right: 20px;
       }
 
       @include md {
-        @include readMoreText(19px, 24px);
+        @include fontParams(25px, 30px);
         padding-right: 0;
-      }
-
-      @include md {
-        @include readMoreText(25px, 30px);
-        padding-right: 30px;
       }
     }
 
-    a {
-      @extend %description-default;
-      @include readMoreText(14px, inherit);
+    span {
+      @extend %eb_garamond;
+      @include fontParams(14px, inherit);
 
+      min-width: 142px;
       display: inline-block;
       margin-top: 3px;
       color: $illusion;
       font-style: italic;
-      font-weight: bold;
       letter-spacing: -0.5px;
       text-decoration: underline;
       position: absolute;
       bottom: 0;
+      font-weight: 400;
 
       @include xs {
-        @include readMoreText(20px, 24px);
+        @include fontParams(20px, 24px);
       }
 
       @include md {
-        @include readMoreText(18px, 24px);
+        @include fontParams(18px, 24px);
       }
 
       &::before {
-        content: '';
+        content: "";
         position: absolute;
         top: 3px;
-        right: -36px;
+        right: -18px;
         height: 13px;
         width: 25px;
-        background: url("/icons/arrow.svg") no-repeat center;
+        //background: url("/icons/arrow.svg") no-repeat center;
 
         @include xs {
           top: 7px;
         }
-      }
 
-      &:hover {
-        opacity: 0.8;
+        @include screen(375px) {
+          right: -36px;
+        }
       }
     }
   }

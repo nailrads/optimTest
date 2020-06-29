@@ -1,0 +1,151 @@
+$border: 1px solid $alto;
+
+.btn-sticky-close {
+  top: 0;
+  right: 0;
+
+  &::before,
+  &::after {
+    background: $black;
+  }
+
+  &--mobile {
+    right: 9%;
+  }
+
+  & + { // наследование соседних тегов https://webref.ru/css/selector/adjacent
+    /**
+     ::v-deep – "глубокий" scoped в стилях, т.е. влиял на дочерние компоненты, вы можете использовать комбинатор >>>,
+     так как мы используем пре-процессор Sass,то он не может правильно обработать >>>.
+     В таких случаях используют комбинатор /deep/ или ::v-deep — оба псевдонимы для >>> и работают аналогично.
+     */
+    ::v-deep {
+      div {
+        & > { // наследование внутренних тегов https://webref.ru/css/selector/child
+          div {
+            width: auto !important;
+
+            iframe {
+              margin-left: 25px;
+              margin-right: 25px;
+              margin-top: 25px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.a_-d {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column-reverse;
+  flex: 1 0 auto;
+  overflow: hidden;
+  position: relative;
+
+  &-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    max-width: 1290px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include md {
+      overflow: visible;
+    }
+  }
+
+  &--sticky {
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    max-width: 100%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 9999;
+  }
+
+  &--indent {
+    margin-top: 15px;
+  }
+
+  &--background {
+    ::v-deep {
+      & > div {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 22;
+        & > div {
+          margin-top: auto;
+          margin-bottom: auto;
+        }
+      }
+    }
+  }
+
+  & > div:not(.is-empty) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &.--border > div:not(.is-empty) {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: $border;
+
+    @include xs {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__info {
+    display: none;
+  }
+
+  &.--border > div:not(.is-empty) ~ & {
+    &__info {
+      @extend %open_sans;
+      @include fontParams(12px, 1.2);
+      display: flex;
+      align-self: stretch;
+      margin-bottom: 10px;
+      margin-top: 15px;
+      background-color: $white;
+      color: $text-muted;
+      align-items: center;
+      text-align: center;
+
+      @include screen(650px) {
+        margin-top: 30px;
+      }
+      @include sm {
+        margin-top: 40px;
+      }
+
+      &::before,
+      &::after {
+        content: "";
+        display: block;
+        height: 1px;
+        background-color: $alto;
+        flex: 1 1 auto;
+      }
+
+      &::before {
+        margin-right: 20px;
+      }
+
+      &::after {
+        margin-left: 20px;
+      }
+    }
+  }
+}

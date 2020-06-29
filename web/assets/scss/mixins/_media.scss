@@ -1,25 +1,67 @@
-@mixin xs{
-  @media only screen and (min-width: 576px) {
-    @content;
+@mixin mediaHover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
   }
 }
-@mixin sm{
-  @media only screen and (min-width: 768px) {
-    @content;
-  }
-}
-@mixin md{
-  @media only screen and (min-width: 992px) {
-    @content;
-  }
-}
-@mixin lg{
-  @media only screen and (min-width: 1200px) {
-    @content;
-  }
-}
-@mixin customScreen($width){
+
+@mixin screen($width) {
   @media only screen and (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin iPhone7 {
+  @include screen(375px) {
+    @content;
+  }
+}
+
+@mixin iPhone7-Plus {
+  @include screen(414px) {
+    @content;
+  }
+}
+
+@mixin xxs {
+  @include screen(568px) {
+    @content;
+  }
+}
+
+@mixin xs {
+  @include screen(576px) {
+    @content;
+  }
+}
+
+@mixin xsm {
+  @include screen(650px) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @include screen(768px) {
+    @content;
+  }
+}
+
+@mixin md {
+  @include screen(1024px) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @include screen(1152px) {
+    @content;
+  }
+}
+
+@mixin xxl {
+  @include screen(1920px) {
     @content;
   }
 }

@@ -1,0 +1,61 @@
+$borderColor: rgba(255, 191, 212, 0.5);
+$indentDefault: 20px;
+
+@mixin indentInsideNoteText($indent) {
+  padding-left: $indent;
+  padding-right: $indent;
+}
+
+@mixin indentOutsideNoteText($top, $bottom) {
+  margin-top: $top;
+  margin-bottom: $bottom;
+}
+
+@mixin fontText($size, $height) {
+  font-size: $size;
+  line-height: $height;
+}
+
+.article-note {
+  width: 100%;
+  position: relative;
+
+  @include indentOutsideNoteText(30px, 30px);
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 20px;
+    bottom: 0;
+    width: 12px;
+    height: 100%;
+    background: $borderColor;
+  }
+
+  @include xs {
+    @include indentInsideNoteText($indentDefault);
+  }
+  @include sm {
+    @include indentOutsideNoteText(25px, 35px);
+  }
+  @include md {
+    @include indentOutsideNoteText(23px, 23px);
+  }
+  @include lg {
+    @include indentOutsideNoteText(32px, 32px);
+  }
+
+  p {
+    margin-left: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-family: 'Tenor Sans', sans-serif !important;
+    @include indentInsideNoteText(30px);
+    @include fontText(17px, 25px);
+
+    @include lg {
+      @include fontText(18px, 27px)
+    }
+  }
+}

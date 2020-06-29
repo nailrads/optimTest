@@ -1,7 +1,7 @@
 <template>
     <div id="wrapper">
 
-        <Header/>
+        <Header v-if="showHeader"/>
         <Sidebar/>
         <Navbar/>
 
@@ -29,24 +29,112 @@
         }
     })
     export default class Cosmo extends Vue {
+        private get showHeader() {
+            return this.$route.name === 'home'
+        }
     }
 
 </script>
 
 <style lang="scss">
-    $white: #ffffff;
-    $cosmo-pink: #ec008c;
-    $text-muted: #999999;
-    $muted-black: #303030;
+    .container {
+        max-width: 100%;
+        min-width: 320px;
+    }
 
-    @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700&display=swap&subset=cyrillic');
+
+    $defaultIndent: 30px;
+    $widthPage: 1160px;
+    $widthMainMd: 570px;
+    $widthMainLg: 790px;
+    $widthSide: 300px;
+
+    $borderDefault: 1px solid $cottonCandy;
+
+
+
+    .wrap {
+        max-width: $widthPage;
+        min-width: 290px;
+        margin-left: auto;
+        margin-right: auto;
+        flex: 1 1 auto;
+        width: 100%;
+        //background: $white;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        @include xsm {
+            width: calc(100% - 10px);
+        }
+
+        @include sm {
+            width: calc(100% - 78px);
+        }
+
+        @include md {
+            width: calc(100% - 84px);
+        }
+
+        @include lg {
+            width: 100%;
+        }
+
+        // &--ad-bg {
+        //   //position: relative;
+        //   background: $white;
+        //   z-index: 99;
+        //   padding: 10px;
+        //   overflow: hidden;
+
+        //   @include xsm {
+        //     padding: 20px;
+        //   }
+        // }
+    }
+
+    .sticky {
+        position: sticky;
+        top: $defaultIndent + 57px;
+    }
+
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @extend %tenor_sans;
+        color: $muted-black;
+    }
+
+    h6 {
+        @include fontParams(18px, 26px);
+        display: inline;
+        box-shadow: inset 0 -12px 0 #FFECE6;
+
+        @include xs {
+            @include fontParams(22px, 31px);
+        }
+    }
+
+    ::selection {
+        background-color: $red;
+        color: #ffffff;
+    }
 
     * {
-        outline: none;
         margin: 0;
         padding: 0;
+        -webkit-overflow-scrolling: touch;
         box-sizing: border-box;
-        font-family: 'Roboto Condensed', sans-serif;
+
+        &,
+        &:after,
+        &:before {
+            box-sizing: border-box;
+        }
     }
 
     html {
@@ -62,127 +150,69 @@
         background-color: rgba(grey, 0.2);
     }
 
-    .breadcrumbs {
-        list-style: none;
-        display: flex;
-        align-items: center;
+    button {
+        border: 0;
+        appearance: none;
+        user-select: none;
+        background: none;
+        appearance: none;
+        &:not(:disabled) {
+            cursor: pointer;
+        }
+        &:disabled {
+            pointer-events: none;
+        }
     }
 
-    .content {
-        padding: 0 10px;
-        margin: 0 auto;
-        display: flex;
-        width: 100%;
+    .cols {
+        display: grid;
 
-        @include customScreen(650px) {
-            padding: 0 25px;
-            width: 650px;
-        }
+        &.--middle {
+            grid-template-columns: 100%;
 
-        @include sm {
-          padding: 0;
-        }
-
-        @include md {
-            width: 900px;
-        }
-
-        @include lg {
-            width: 1120px;
-        }
-
-        .content__main {
-            width: 100%;
-
-            @include sm {
-                width: 100%;
-            }
             @include md {
-                width: 570px;
+                grid-template-columns: $widthMainMd $widthSide;
+                grid-column-gap: 30px;
             }
             @include lg {
-                width: 740px;
+                grid-template-columns: ($widthMainLg - 50) $widthSide;
+                grid-column-gap: 80px;
             }
         }
 
-        .content__side {
-            display: none;
+        &.--full {
+            grid-template-columns: minmax(100%, 1fr);
+        }
+
+        &.--default {
+            grid-template-columns: 100%;
 
             @include md {
+                grid-template-columns: minmax($widthMainMd, auto) $widthSide;
+                grid-column-gap: 30px;
+            }
+            @include lg {
+                grid-template-columns: $widthMainLg $widthSide;
+                grid-column-gap: 70px;
+            }
+        }
+
+        .col__cnt {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .col__side {
+            display: none;
+            overflow: hidden;
+            @include md {
                 display: block;
-                margin-left: auto;
-                width: 300px;
+                position: sticky;
+                top: 67px;
+                padding-bottom: $defaultIndent;
             }
         }
     }
 
-    .sticky + .content {
-        padding-top: 87px;
-    }
 
-    .mt-30 {
-        margin-top: 30px;
-    }
-
-    .mb-30 {
-        margin-bottom: 30px;
-    }
-
-    /*.container {*/
-    /*  margin: 0 auto;*/
-    /*}*/
-
-    .text-muted {
-        color: $text-muted;
-    }
-
-    button {
-        background-color: transparent;
-        border: none;
-
-        &:hover {
-            cursor: pointer;
-        }
-    }
-
-    .icon-close {
-        position: absolute;
-        width: 24px;
-        height: 24px;
-
-        top: 30px;
-        right: 30px;
-
-        &::before,
-        &::after {
-            content: '';
-            position: absolute;
-            height: 2px;
-            width: inherit;
-            background-color: $white;
-            top: 12px;
-            left: 0;
-            right: 0;
-            margin: 0 auto;
-            display: block;
-            transition: background-color .15s linear 0s;
-        }
-
-        &::before {
-            transform: rotateZ(45deg);
-        }
-
-        &::after {
-            transform: rotateZ(-45deg);
-        }
-
-        &:hover {
-            cursor: pointer;
-
-            &::before,
-            &::after {
-                background-color: $cosmo-pink;
-            }
-        }
-    }
 </style>

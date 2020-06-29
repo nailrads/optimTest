@@ -1,0 +1,42 @@
+.wrapper {
+  position: relative;
+  flex: 1 1 auto;
+  width: 0;
+  &_defined_ratio {
+    font-size: 0;
+    .layer {
+      height: 100%;
+      background-color: #ffc5c4;
+      background-size: cover;
+      background-position: center;
+      background-image: var(--bg-image);
+    }
+    .picture {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+    }
+  }
+}
+
+.picture {
+  width: 100%;
+  &-container {
+    display: flex;
+    overflow: hidden;
+  }
+  & > img {
+    width: 100%;
+    height: inherit;
+  }
+  picture {
+    display: block;
+    height: 100%;
+    * {
+      width: 100%;
+      object-fit: cover;
+      height: inherit;
+    }
+  }
+}

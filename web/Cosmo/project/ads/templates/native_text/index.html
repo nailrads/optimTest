@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Native Text</title>
+</head>
+<body>
+<style>
+    .native_text {
+        font-family: 'EB Garamond', serif; /* Импортировать не нужно так как уже есть глобально этот шрифт на плафторме */
+        font-style: italic;
+        font-weight: normal;
+        font-size: 21px;
+        line-height: 28px;
+        color: #303030;
+        position: relative;
+        padding-left: 32px;
+        width: 100%;
+    }
+
+    .native_text a {
+        color: #FFBFD4;
+    }
+
+    .native_text::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 12px;
+        height: 100%;
+        background: #FADBE5;
+    }
+</style>
+
+<p class="native_text">
+    «Американский офицер Коди Грей из Калкаски (штат Мичиган) поделился проблемой со своей женой Евой. И тогда ей в
+    голову пришла просто гениальнная идея.
+</p>
+</body>
+</html>
